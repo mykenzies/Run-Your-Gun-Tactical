@@ -1,4 +1,4 @@
 # rygtapp
 
-A new Flutter project.
+A new multi-platform application. 
 
