@@ -1,0 +1,2 @@
+C:/Users/quake/RGApp/rygtapp/android/app/.cxx/Debug/182a2x4s/x86/CMakeFiles/edit_cache.dir
+C:/Users/quake/RGApp/rygtapp/android/app/.cxx/Debug/182a2x4s/x86/CMakeFiles/rebuild_cache.dir
