@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:rygtapp/UI/aboutUs/about_us_screen.dart'; // Import About Us page from its folder
+import 'package:rygtapp/UI/aboutUs/about_us_screen.dart';
+import 'package:rygtapp/UI/shop/shop_screen.dart'; // Import Shop screen
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,12 +21,14 @@ class _HomeState extends State<Home> {
     _pageController = PageController();
 
     // Initialize the video player and start playing it automatically
-    _videoController = VideoPlayerController.asset(
-        'assets/Website Video - Welcome Section (1).mp4')
+    _videoController = VideoPlayerController.asset('assets/Welcome.mp4')
       ..initialize().then((_) {
         setState(() {
+          _videoController.setLooping(true);
           _videoController.play(); // Start playing the video automatically
         });
+      }).catchError((error) {
+        print("Error loading video: $error");
       });
   }
 
@@ -125,7 +128,9 @@ class _HomeState extends State<Home> {
                                       child: VideoPlayer(_videoController),
                                     )
                                   : const Center(
-                                      child: CircularProgressIndicator()),
+                                      child:
+                                          CircularProgressIndicator(), // Loading indicator until video is initialized
+                                    ),
                             ],
                           ),
                           // Second Page: Text (Explore Our Features)
@@ -190,7 +195,7 @@ class _HomeState extends State<Home> {
               ],
             ),
             const Center(child: Text("Courses")),
-            const Center(child: Text("Profile")),
+            const Shop(), // Display Shop screen here when tapped
             const Center(child: Text("Other Content")),
           ],
         ),
